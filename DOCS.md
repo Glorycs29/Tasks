@@ -1,7 +1,7 @@
+# Setting up the web-app locally
 
 ```markdown
 
-# Setting up the web-app locally
 
 1. **Clean Cache:**
    ```bash
