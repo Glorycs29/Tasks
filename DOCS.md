@@ -1,82 +1,44 @@
+
 ```markdown
-# Project Documentation
 
-Welcome to the documentation for the <Your Project Name> web application! This guide will walk you through the steps to set up and run the application locally.
+# Setting up the web-app locally
 
-## Prerequisites
-
-Before you start, make sure you have the following installed on your machine:
-
-- [Java](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK 8 or later)
-- [Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) (for Azure deployment)
-
-## Running Locally
-
-Follow these steps to run the application locally:
-
-1. **Clone the Repository:**
+1. **Clean Cache:**
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   npm cache clean --force
    ```
 
-2. **Build the Project:**
+2. **Start the Application:**
    ```bash
-   cd your-repository
-   ./mvnw clean install
+   npm start
+   ```
+   The application will be accessible at [http://localhost:3000/](http://localhost:3000/).
+
+## Steps to Run the Backend (Spring Boot) Application
+
+1. **Import Project:**
+   - Import the project as an existing Maven project into your preferred IDE (e.g., Eclipse, IntelliJ).
+
+2. **Maven Clean:**
+   ```bash
+   mvn clean
    ```
 
-3. **Create an Executable JAR:**
+3. **Maven Install:**
    ```bash
-   ./mvnw package
+   mvn install
    ```
+   After running these commands, the application will start at localhost with the specified port in the `application.properties` file.
 
-4. **Run the Application:**
-   ```bash
-   java -jar target/your-app-name.jar
-   ```
+   For example, it may start at [http://localhost:8090/](http://localhost:8090/).
 
-   The application will start on [http://localhost:8080](http://localhost:8080).
+## Test the Backend APIs Separately
 
-5. **Access the Application:**
-   Open your web browser and go to [http://localhost:8080](http://localhost:8080) to view the application.
+Use the following URLs to test the backend APIs:
 
-## Azure Deployment (Optional)
+- [http://localhost:8090/leapfinance/gettodolistdata](http://localhost:8090/leapfinance/gettodolistdata) - Get all the to-do tasks.
+- [http://localhost:8090/leapfinance/addnewtodotask](http://localhost:8090/leapfinance/addnewtodotask) - Add a new to-do task.
+- [http://localhost:8090/leapfinance/edittodotask](http://localhost:8090/leapfinance/edittodotask) - Edit an existing to-do task.
+- [http://localhost:8090/leapfinance/deletetask/1](http://localhost:8090/leapfinance/deletetask/1) - Delete a to-do task by ID.
 
-If you want to deploy the application to Azure App Service, follow these additional steps:
-
-1. **Install Azure CLI:**
-   Follow the instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) to install the Azure CLI.
-
-2. **Log in to Azure:**
-   ```bash
-   az login
-   ```
-
-3. **Deploy to Azure App Service:**
-   ```bash
-   az webapp up --name your-app-name --sku F1 --location your-region
-   ```
-
-   Replace `your-app-name` with a unique name for your app, and `your-region` with your desired Azure region.
-
-4. **Access the Deployed Application:**
-   After deployment, Azure will provide you with a URL to access your deployed Spring Boot application.
-
-## Additional Configuration
-
-- **Database Configuration (if applicable):**
-  Configure the database connection in the `application.properties` or `application.yml` file.
-
-- **SSL Configuration (Optional):**
-  If you want to enable HTTPS, configure SSL. Azure App Service provides options for managing SSL certificates.
-
-## Troubleshooting
-
-If you encounter any issues or have questions, please refer to the [official documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html) or feel free to open an issue on our [GitHub repository](https://github.com/your-username/your-repository/issues).
-
-Happy coding!
-### This project is not currently deployed on Azure, but it will be soon. The frontend has already been deployed on Netlify.
 ```
-
-Replace `<Your Project Name>`, `your-username`, `your-repository`, `your-app-name`, and `your-region` with your actual project details. This document provides a basic set of instructions to help users run your Spring Boot application locally and, optionally, deploy it to Azure. Feel free to customize it based on your project's specific requirements.
